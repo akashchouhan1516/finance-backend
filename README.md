@@ -69,3 +69,4 @@ Users can register, log in, manage financial records, and view summarized analyt
 ```bash
 git clone https://github.com/akashchouhan1516/finance-backend.git
 cd finance-backend
+## deployment at https://finance-backend-qgq4.onrender.com/
