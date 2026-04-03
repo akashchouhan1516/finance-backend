@@ -1,16 +1,18 @@
 # 💰 Finance Tracker Backend
 
 ## 🚀 Overview
-A backend system for managing personal finance records with secure authentication and real-time analytics.  
-Users can register, log in, add financial records, and view summarized insights.
+A backend system for managing personal finance records with secure authentication and role-based access control.  
+Users can register, log in, manage financial records, and view summarized analytics.
 
 ---
 
 ## ✨ Features
 - 🔐 JWT Authentication (Register & Login)
-- 🛡️ Secure Protected Routes
-- 💰 Add & Retrieve Financial Records
+- 🛡️ Protected Routes with Middleware
+- 👥 Role-Based Access Control (Admin, Analyst, Viewer)
+- 💰 Full CRUD Operations for Records
 - 📊 Dashboard Summary (Income, Expense, Balance)
+- 🔍 Filter Records (by type & category)
 - 🔒 Password Hashing using bcrypt
 
 ---
@@ -37,8 +39,10 @@ Users can register, log in, add financial records, and view summarized insights.
 ### 💰 Record Routes
 | Method | Endpoint | Description |
 |-------|---------|------------|
-| POST | /api/records | Add new record |
-| GET | /api/records | Get all records |
+| POST | /api/records | Add new record (Admin only) |
+| GET | /api/records | Get records (Admin & Analyst) |
+| PUT | /api/records/:id | Update record (Admin only) |
+| DELETE | /api/records/:id | Delete record (Admin only) |
 
 ---
 
@@ -46,6 +50,16 @@ Users can register, log in, add financial records, and view summarized insights.
 | Method | Endpoint | Description |
 |-------|---------|------------|
 | GET | /api/dashboard/summary | Get income/expense summary |
+
+---
+
+## 🔐 Role Permissions
+
+| Role | Permissions |
+|------|------------|
+| Viewer | View only |
+| Analyst | View & analyze |
+| Admin | Full access (CRUD) |
 
 ---
 
